@@ -10,7 +10,7 @@ Unified permission management for Claude Code, Gemini CLI, and Codex CLI.
 Manage allow/deny rules across all three AI coding agents from a single place, with automatic format conversion.
 
 ```bash
-npx skills add surmrf/skills
+npx skills add surmrf/skills/xr-agent-permissions
 ```
 
 ## Requirements
