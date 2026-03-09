@@ -12,6 +12,12 @@ Unified permission management for **Claude Code**, **Gemini CLI**, and **Codex C
 npx skills add https://github.com/surmrf/skills --skill xr-agent-permissions
 ```
 
+### Update
+
+```bash
+npx skills update xr-agent-permissions
+```
+
 ### What it does
 
 Each AI CLI tool stores permissions in a different format:
@@ -50,12 +56,6 @@ sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh remove --command
 sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh sync \
   --allow "git log" "git status" "npm run" \
   --deny "sudo" "rm -rf" "curl"
-```
-
-### Update
-
-```bash
-npx skills update xr-agent-permissions
 ```
 
 ### Requirements
