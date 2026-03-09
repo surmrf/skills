@@ -38,23 +38,23 @@ Or use the script directly:
 
 ```bash
 # View current permissions across all tools
-python ~/.agents/skills/xr-agent-permissions/scripts/permissions.py show
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh show
 
 # Add a rule to all tools
-python ~/.agents/skills/xr-agent-permissions/scripts/permissions.py add --command "git log" --decision allow
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh add --command "git log" --decision allow
 
 # Remove a rule from all tools
-python ~/.agents/skills/xr-agent-permissions/scripts/permissions.py remove --command "curl" --decision deny
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh remove --command "curl" --decision deny
 
 # Sync (overwrite all rules at once)
-python ~/.agents/skills/xr-agent-permissions/scripts/permissions.py sync \
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh sync \
   --allow "git log" "git status" "npm run" \
   --deny "sudo" "rm -rf" "curl"
 ```
 
 ### Requirements
 
-- Python 3.8+
+- Python 3.8+ or Python 2.7+
 - One or more of: Claude Code, Gemini CLI, Codex CLI
 
 ## License

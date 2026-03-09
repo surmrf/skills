@@ -20,7 +20,7 @@ Each tool uses a different rule format. When converting a command (e.g., `git lo
 | Gemini CLI | `git log` | entry in `sandbox.blockedCommands` |
 | Codex CLI | `^git log( .*)?$` with `decision = "allow"` | same pattern with `decision = "forbidden"` |
 
-Use `scripts/permissions.py` for all reads and writes — never hand-edit the TOML/JSON directly without it, as TOML `[[shell_rules]]` arrays require careful handling.
+Use `scripts/permissions.sh` for all reads and writes — never hand-edit the TOML/JSON directly without it, as TOML `[[shell_rules]]` arrays require careful handling.
 
 ## Workflow
 
@@ -28,7 +28,7 @@ Use `scripts/permissions.py` for all reads and writes — never hand-edit the TO
 
 Run:
 ```bash
-python ~/Workspaces/agent-permissions/scripts/permissions.py show
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh show
 ```
 
 This prints a unified table of allow/deny rules across all three tools.
@@ -41,8 +41,8 @@ Ask the user for:
 
 Then run:
 ```bash
-python ~/Workspaces/agent-permissions/scripts/permissions.py add --command "git log" --decision allow
-python ~/Workspaces/agent-permissions/scripts/permissions.py add --command "curl" --decision deny
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh add --command "git log" --decision allow
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh add --command "curl" --decision deny
 ```
 
 The script auto-converts the command into each tool's native format.
@@ -51,14 +51,14 @@ The script auto-converts the command into each tool's native format.
 
 Ask the user which command to remove and from which decision list (allow/deny):
 ```bash
-python ~/Workspaces/agent-permissions/scripts/permissions.py remove --command "git log" --decision allow
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh remove --command "git log" --decision allow
 ```
 
 ### Sync (overwrite all rules)
 
 When the user provides a full list of allow/deny rules to replace the existing ones:
 ```bash
-python ~/Workspaces/agent-permissions/scripts/permissions.py sync \
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh sync \
   --allow "git log" "git status" "npm run" \
   --deny "sudo" "rm -rf" "curl"
 ```
@@ -87,5 +87,5 @@ When the user provides a plain command string, convert as follows:
 
 Always run `show` after making changes so the user can verify the result:
 ```bash
-python ~/Workspaces/agent-permissions/scripts/permissions.py show
+sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh show
 ```
