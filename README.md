@@ -52,6 +52,12 @@ sh ~/.agents/skills/xr-agent-permissions/scripts/permissions.sh sync \
   --deny "sudo" "rm -rf" "curl"
 ```
 
+### Update
+
+```bash
+npx skills update xr-agent-permissions
+```
+
 ### Requirements
 
 - Python 3.8+ or Python 2.7+
